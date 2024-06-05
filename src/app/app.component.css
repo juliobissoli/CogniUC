@@ -1,0 +1,9 @@
+
+
+/* .w-menu {
+    width: var(--main-menu-width);
+} */
+
+.w-page {
+    width:  calc(100vw - var(--main-menu-width));
+}

@@ -1,0 +1,50 @@
+.icon {
+    display: flex;
+    min-width: 10px;
+    min-height: 10px;
+    background: rgba(#000000, 0.8);
+    mask-size: cover;
+}
+
+.icon-home {
+    mask: url(./svg/home.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
+
+.icon-tower {
+    mask: url(./svg//tower.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
+.icon-calc {
+    mask: url(./svg//calc.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
+.icon-persons {
+    mask: url(./svg/persons.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
+.icon-money {
+    mask: url(./svg//money.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
+.icon-settings {
+    mask: url(./svg/settings.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
+.icon-arrow-next {
+    mask: url(./svg/arrow-next.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
