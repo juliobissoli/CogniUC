@@ -1,0 +1,22 @@
+<header class="w-full bg-white">
+    <div class="flex items-center justify-between border-b px-4 lg:px-8">
+        <i class="icon icon-menu-sanduiche bg-zinc-500 h-5 w-5"></i>
+        <div class="p-4 bg-[#F3F3F9] flex gap-2 lg:w-[190px]">
+            <div class="h-10 w-10 ">
+                <app-avatar [url]="userData.avatarUrl" />
+            </div>
+            <div class="hidden lg:block">
+                <p class="font-bold text-sm">{{userData.name}}</p>
+                <p class="text-xs text-[--text-secondary]">{{userData.role}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex justify-between items-center px-4 lg:px-8 py-2 border-b shadow-sm">
+        <h2 class="text-xl font-semibold">{{routerInfo.title}}</h2>
+        <h3 class="text-sm">Gestão de UCs 
+            @if(routerInfo.subtitle) {
+                > <span class="text-[--text-secondary]">{{routerInfo.subtitle}}</span>
+            }
+        </h3>
+    </div>
+</header>

@@ -1,1 +1,23 @@
-<p>uc-manager-page works!</p>
+<div>
+    <header class="flex items-end flex-col">
+        <div class="flex space-x-4">
+            <a routerLink="/uc/form" class="btn-primary">
+                <i class="icon icon-add-home w-5 h-5 bg-white"></i>
+                Cadastro manual
+            </a>
+            <button class="btn-primary">
+                <i class="icon icon-upload-file w-5 h-5 bg-white"></i>
+                Importar planilha
+            </button>
+        </div>
+        <button class="text-[--bg-btn-primary] flex gap-2 items-center mt-2 text-xs ">
+            <i class="icon icon-download w-5 h-5  bg-[--bg-btn-primary]"></i>
+            Download modelo de planilha
+        </button>
+    </header>
+
+    <section class="mt-4 space-x-4">
+        <app-uc-statistics />
+        <app-uc-list />
+    </section>
+</div>

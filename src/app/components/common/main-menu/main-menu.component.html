@@ -1,14 +1,15 @@
-<nav class=" bg-[#1E01C2] h-full p-2 lg:p-4 lg:px-6">
+<nav class="hidden lg:block bg-[--bg-menu] w-[--main-menu-width] h-full p-2 lg:p-4 lg:px-6">
     <div class="w-full flex justify-center">
         <img src="logo.png" class="w-full w-[100px] lg:w-[220px]" />
     </div>
     <ul class="mt-8 text-white space-y-6">
         @for (item of routersBtn; track item.label) {
         <li>
-            <a class="flex items-center justify-between cursor-pointer" [class]="currentRouter == item.path ? 'text-orange-300' : ''"
-                [routerLink]="[item.path]">
+            <a class="flex items-center justify-between cursor-pointer"
+                [class]="currentRouter == item.path ? 'text-orange-300' : ''"
+                 [routerLink]="[item.path]">
 
-                <div class="flex items-center gap-2 text-lg">
+                <div class="flex items-center font-semibold gap-2 text-lg">
                     <i [class]='item.icon' class="icon h-[18px] w-[18px] bg-white"> </i>
                     {{ item.label }}
                 </div>
@@ -20,3 +21,35 @@
         }
     </ul>
 </nav>
+
+<header class="relative lg:hidden visible bg-[--bg-menu]  h-[60px]">
+    <div class="w-full flex justify-between p-3">
+        <img src="logo.png" class="w-[100px]" />
+        <button (click)="isExpanded  = !isExpanded">
+            <i class="icon icon-menu-sanduiche h-5 w-5 bg-white"></i>
+        </button>
+    </div>
+
+    @if(isExpanded) {
+
+    <nav class="absolute w-[100vw] bg-[--bg-menu] p-3 z-50">
+        <ul class="mt-8 text-white space-y-6">
+            @for (item of routersBtn; track item.label) {
+            <li>
+                <a class="flex items-center justify-between cursor-pointer"
+                    [class]="currentRouter == item.path ? 'text-orange-300' : ''" [routerLink]="[item.path]">
+
+                    <div class="flex items-center font-semibold gap-2 text-lg">
+                        <i [class]='item.icon' class="icon h-[18px] w-[18px] bg-white"> </i>
+                        {{ item.label }}
+                    </div>
+                    @if(item.hasNext) {
+                    <i class="icon icon-arrow-next h-[18px] w-[18px] bg-white"></i>
+                    }
+                </a>
+            </li>
+            }
+        </ul>
+    </nav>
+    }
+</header>

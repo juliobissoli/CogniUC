@@ -1,0 +1,11 @@
+<div class="flex gap-4">
+    @for (item of statisticsData; track item.label) {
+    <div [class]="item.class">
+        <app-card [title]="item.label">
+            <div class="flex items-center min-h-[80px]">
+                <p class="text-center w-full">    Sem dados. Cadastre suas UCs</p>
+            </div>
+        </app-card>
+    </div>
+    }
+</div>

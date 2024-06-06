@@ -11,6 +11,8 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 export class MainMenuComponent {
   currentRouter: string = '';
 
+  isExpanded: boolean = false
+
   constructor(private router: Router) {
     this.currentRouter = this.router.url;
   }
@@ -33,6 +35,7 @@ export class MainMenuComponent {
     { hasNext: true, path: '/balance', label: 'Gestão de faturamento', icon: 'icon-money' },
     { hasNext: true, path: '/settings', label: 'Configurações', icon: 'icon-settings' },
   ]
+
 
 
 

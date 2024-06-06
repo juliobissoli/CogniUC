@@ -2,7 +2,10 @@
   <aside class="w-full lg:w-[var(--main-menu-width)] h-[50px] lg:h-svh sticky top-0 ">
     <app-main-menu />
   </aside>
-  <aside class="w-page  lg:mt-0">
-    <router-outlet />
+  <aside class="w-pag w-full lg:w-[var(content-width)]">
+    <app-main-header />
+    <section class="p-8">
+      <router-outlet />
+    </section>
   </aside>
 </main>

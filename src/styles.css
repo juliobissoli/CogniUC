@@ -1,9 +1,39 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;/* You can add global styles to this file, and also import other style files */
-
+@tailwind utilities;
+/* You can add global styles to this file, and also import other style files */
 
 
 :root {
+    --bg-app: #F3F6F9;
+    --text-secondary: #878A99;
+    --bg-menu: #1E01C2;
     --main-menu-width: 314px;
+    --content-width: calc(100vw - --main-menu-width);
+
+    --bg-btn-primary: #6691E7;
+    --bg-btn-danger: #FF0000;
+}
+
+body {
+    color: #302423;
+    background-color: var(--bg-app);
+}
+
+
+.btn {
+    @apply flex items-center gap-2 rounded px-4 py-2 cursor-pointer text-white;
+}
+
+.btn-primary {
+    @apply btn bg-[--bg-btn-primary] hover:bg-blue-600/90;
+}
+
+.btn-danger {
+    @apply btn bg-[--bg-btn-danger] hover:bg-red-600/90;
+}
+
+.btn-link {
+    @apply btn;
+    color: var(--bg-btn-primary);
 }

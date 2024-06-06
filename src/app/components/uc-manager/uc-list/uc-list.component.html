@@ -1,0 +1,24 @@
+<app-card title="Lista de UCs cadastradas">
+    <div class="h-[45vh]">
+        @if(ucList.length > 0) {
+              <div>Tabela</div>
+            <!-- @for (item of ucList; track item.id) {
+            <div> {{ item }}</div>
+            } -->
+        }
+        @else {
+            <div class="h-full flex justify-center items-center flex-col">
+                <p class="w-full max-w-4xl mx-auto text-center">
+                    Ainda não existem UCs cadastradas no sistema. Cadastre manualmente uma UC ou faça a
+                    importação em massa de suas UCs com nosso modelo de planilha
+                </p>
+                <button class="text-[--bg-btn-primary] flex gap-2 items-center mt-2 text-xs ">
+                    <i class="icon icon-download w-5 h-5  bg-[--bg-btn-primary]"></i>
+                    Download modelo de planilha
+                </button>
+            </div>
+
+        
+        }
+    </div>
+</app-card>

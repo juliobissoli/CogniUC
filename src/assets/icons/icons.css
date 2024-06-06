@@ -48,3 +48,29 @@
     mask-repeat: no-repeat;
     mask-size: 100%;
 }
+
+
+.icon-menu-sanduiche {
+    mask: url(./svg/menu-sanduiche.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
+
+.icon-add-home {
+    mask: url(./svg/add-home.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
+.icon-upload-file {
+    mask: url(./svg/upload-file.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+.icon-download {
+    mask: url(./svg/download.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
