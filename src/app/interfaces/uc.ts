@@ -1,6 +1,6 @@
 export interface Uc {
     id: string;
-
+    active: boolean,
     dateInit: Date; // Vigência inicial;
     concessionaire: string // Concessionária;
     uf: string // UF;
@@ -18,6 +18,29 @@ export interface Uc {
     password: string;// Senha;
 }
 
+export const sanitizeUc = (data: any) => {
+    const newData: Uc = {
+        id: data?.id ?? new Date().getTime().toString(),
+        dateInit: new Date(data?.dateInit ?? ''),
+        active: !!!data.active,
+        concessionaire: data?.concessionaire ??  '',
+        uf: data?.uf ?? '',
+        numInstallation: parseInt(data?.numInstallation ?? '0'),
+        numClient:  parseInt(data?.numClient ?? '0'),
+        company: data?.company ?? '',
+        unitDescription: data?.unitDescription  ?? '',
+        type: data?.type ?? '',
+        modality: data?.modality  ?? '',
+        isRural: data?.isRural === 'Sim',
+        orgType: data?.orgType ?? '',
+        licenseType: data?.licenseType ?? '',
+        personCode: data?.personCode  ?? '',
+        email: data?.email ??  '',
+        password: data?.password ?? '',
+    }
+
+    return newData
+}
 
 export const listConcessionaireAvailable = [
     'Amazonas Energia',

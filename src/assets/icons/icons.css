@@ -43,6 +43,14 @@
     mask-size: 100%;
 }
 
+.icon-settings-outline {
+    mask: url(./svg/settings-outline.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}
+
+
+
 .icon-arrow-next {
     mask: url(./svg/arrow-next.svg);
     mask-repeat: no-repeat;
@@ -78,4 +86,16 @@
     mask: url(./svg/informate.svg);
     mask-repeat: no-repeat;
     mask-size: 100%;
+}
+
+.icon-edit {
+    mask: url(./svg/edite.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%; 
+}
+
+.icon-trash {
+    mask: url(./svg/trash.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%; 
 }
