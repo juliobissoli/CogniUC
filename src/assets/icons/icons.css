@@ -74,3 +74,8 @@
     mask-size: 100%;
 }
 
+.icon-info {
+    mask: url(./svg/informate.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+}

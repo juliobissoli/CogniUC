@@ -1,0 +1,14 @@
+<div class="w-full">
+    <p class="flex justify-between">
+        <label for="" class="text-xs">
+            {{label}}
+            @if(required) {
+            <span class="text-red-500 text-md">*</span>
+            }
+        </label>
+        <i class="icon icon-info h-2 w-2 bg-zinc-900"></i>
+    </p>
+    <div class="input" [class.border-red-500]="error">
+        <ng-content></ng-content>
+    </div>
+</div>

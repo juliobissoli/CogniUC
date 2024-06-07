@@ -1,16 +1,72 @@
 <header class="flex justify-between ">
-    <h1 class="text-xl text-sembold flex items-center gap-2">
-        <i class="icon icon-add-home h-6 w-6 bg-zinc-900"></i>
+    <h1 class="text-xl font-semibold flex items-center gap-2 m-0">
+        <i class="icon icon-add-home h-7 w-7 bg-zinc-900"></i>
         Cadastro de nova UC
     </h1>
     <div class="flex space-x-4">
-        
+
         <a routerLink="/uc" class="btn-danger">
             Cancelar
         </a>
-        <button class="btn-primary">
+        <button (click)="onSave()" class="btn-primary">
             <i class="icon icon-upload-file w-5 h-5 bg-white"></i>
             Cadastrar UC
         </button>
     </div>
 </header>
+
+<section>
+    <form [formGroup]="profileForm" class="p-8 space-y-8">
+        <!-- <div class="max-w-[200px]">
+            <p class="flex justify-between">
+                <label for="" class="text-xs">Vigência inicial</label>
+                <i class="icon icon-info h-2 w-2 bg-zinc-900"></i>
+            </p>
+            <input formControlName="initialValidity" id="" class='input w-full' type="date" />
+        </div>
+
+        <div class="w-[200px]">
+            <app-text-field label="Teste" [required]="true">
+                <input type="text" name="" id="">
+            </app-text-field>
+        </div>
+
+        <div class="w-[200px]">
+            <app-text-field label="Teste" [required]="true">
+                <select formControlName="concessionaire">
+                    @for(item of listConcessionaire; let idx = $index; track idx) {
+                    <option [ngValue]="item">{{item}}</option>
+                    }
+                </select>
+            </app-text-field>
+        </div> -->
+
+
+        @for(line of lines; track line) {
+        <div class="flex flex-wrap gap-8">
+            @for(item of formInfo; track item.entity) {
+                @if(item.line === line) {
+                <div class="">
+                    <app-text-field 
+                      [label]="item.label"
+                      [required]="item.required"
+                      [error]="!profileForm.get(item.entity)?.valid && !this.profileForm.get(item.entity)?.pristine"
+                      >
+                        @if(item.options) {
+                            <select [formControlName]="item.entity">
+                                @for(item of item.options; let idx = $index; track idx) {
+                                    <option [ngValue]="item">{{item}}</option>
+                                }
+                            </select>
+                        }
+                        @else {
+                            <input [formControlName]="item.entity" [id]="item.entity" [type]="item.type" />
+                        }       
+                    </app-text-field>
+                </div>
+                }
+            }
+        </div>
+        }
+    </form>
+</section>

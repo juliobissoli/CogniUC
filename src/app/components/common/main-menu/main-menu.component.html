@@ -6,15 +6,16 @@
         @for (item of routersBtn; track item.label) {
         <li>
             <a class="flex items-center justify-between cursor-pointer"
-                [class]="currentRouter == item.path ? 'text-orange-300' : ''"
-                 [routerLink]="[item.path]">
+                [class.text-orange-300]='currentRouter == item.path'
+                [routerLink]="[item.path]">
 
                 <div class="flex items-center font-semibold gap-2 text-lg">
-                    <i [class]='item.icon' class="icon h-[18px] w-[18px] bg-white"> </i>
+                    <i [class]='[item.icon]' [class.bg-orange-300]='currentRouter == item.path'
+                        class="icon h-[18px] w-[18px] bg-white"> </i>
                     {{ item.label }}
                 </div>
                 @if(item.hasNext) {
-                <i class="icon icon-arrow-next h-[18px] w-[18px] bg-white"></i>
+                <i  [class.bg-orange-300]='currentRouter == item.path' class="icon icon-arrow-next h-[18px] w-[18px] bg-white"></i>
                 }
             </a>
         </li>
