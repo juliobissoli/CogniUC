@@ -34,6 +34,8 @@
                       [label]="item.label"
                       [required]="item.required"
                       [error]="!profileForm.get(item.entity)?.valid && !this.profileForm.get(item.entity)?.pristine"
+                      [sufixIcon]="item.type === 'password' ? iconsPassword : undefined"
+                      (sufixClick)="toggleVisibilityPass()"
                       >
                         @if(item.options) {
                             <select [formControlName]="item.entity">
@@ -43,7 +45,10 @@
                             </select>
                         }
                         @else {
-                            <input [formControlName]="item.entity" [id]="item.entity" [type]="item.type" />
+                            <input 
+                                    [formControlName]="item.entity"
+                                    [id]="item.entity"
+                                    [type]="item.type === 'password' ? passwordInputType : item.type" />
                         }       
                     </app-text-field>
                 </div>

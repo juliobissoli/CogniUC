@@ -8,7 +8,14 @@
         </label>
         <i class="icon icon-info h-2 w-2 bg-zinc-900"></i>
     </p>
-    <div class="input" [class.border-red-500]="error">
-        <ng-content></ng-content>
+    <div class="flex flex-row input" [class.border-red-500]="error">
+        <div class=" w-full" >
+            <ng-content></ng-content>
+        </div>
+        @if(sufixIcon) {
+            <button (click)="sufixClick.emit()">
+                <i class="icon h-5 w-5 bg-zinc-500" [class]="sufixIcon"></i>
+            </button>
+        }
     </div>
 </div>

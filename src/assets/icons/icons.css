@@ -99,3 +99,15 @@
     mask-repeat: no-repeat;
     mask-size: 100%; 
 }
+
+.icon-visibility {
+    mask: url(./svg/visibility.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%; 
+}
+
+.icon-visibility-off {
+    mask: url(./svg/visibility_off.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%; 
+}

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-text-field',
@@ -13,5 +13,9 @@ export class TextFieldComponent {
   @Input() required: boolean = false
 
   @Input() error?: boolean = false;
+
+  @Input() sufixIcon?: string; 
+
+  @Output() sufixClick = new EventEmitter();
 
 }

@@ -47,7 +47,7 @@ export class UcFormPageComponent {
     licenseType: new FormControl('', [Validators.required]),
     personCode: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required])
+    password: new FormControl('', [Validators.required, Validators.minLength(6)])
   })
 
 
@@ -55,9 +55,6 @@ export class UcFormPageComponent {
 
 
   onSave() {
-    console.log(this.profileForm.get('dateInit')?.valid)
-    console.log(this.profileForm.get('dateInit')?.pristine)
-    console.log(this.profileForm.valid)
     const data: Uc = sanitizeUc(this.profileForm.value)
 
     this.isLoading = true
@@ -74,5 +71,17 @@ export class UcFormPageComponent {
 
 
   formInfo = ucFormFields
+
+  passwordInputType: 'password' | 'text' = 'password';
+
+  iconsPassword: 'icon-visibility-off' | 'icon-visibility' = 'icon-visibility-off'
+
+  toggleVisibilityPass() {
+    this.passwordInputType = this.passwordInputType === 'password' ? 'text' : 'password'
+    this.iconsPassword = this.passwordInputType === 'password' ? 'icon-visibility-off' : 'icon-visibility'
+
+    
+    // console.log('bateu aqui')
+  }
 
 }
