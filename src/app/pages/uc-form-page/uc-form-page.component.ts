@@ -10,6 +10,7 @@ import { TextFieldComponent } from '../../components/common/text-field/text-fiel
 import { ucFormFields } from './fields';
 import { DefaultService } from '../../services/default.service';
 import { Uc, sanitizeUc } from '../../interfaces/uc';
+import { filterDigits, maskCnpj, maskCpf } from '../../utils/formatter';
 
 @Component({
   selector: 'app-uc-form-page',
@@ -80,8 +81,27 @@ export class UcFormPageComponent {
     this.passwordInputType = this.passwordInputType === 'password' ? 'text' : 'password'
     this.iconsPassword = this.passwordInputType === 'password' ? 'icon-visibility-off' : 'icon-visibility'
 
-    
+
     // console.log('bateu aqui')
+  }
+
+
+  handleMask(event: any, entity: string) {
+    if(entity === 'numInstallation' || entity === 'numClient') {
+      const digits = filterDigits(20, event.target.value)
+      event.target.value = digits
+    }
+    if (entity === 'personCode') {
+
+      let newStr = ''
+      if (event.target.value.length > 14) {
+        newStr = maskCnpj(event.target.value)
+      }
+      else {
+        newStr = maskCpf(event.target.value)
+      }
+      event.target.value = newStr
+    }
   }
 
 }

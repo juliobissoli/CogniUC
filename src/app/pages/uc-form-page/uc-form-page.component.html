@@ -1,7 +1,7 @@
 <header class="flex justify-between ">
     <h1 class="text-xl font-semibold flex items-center gap-2 m-0">
         <i class="icon icon-add-home h-7 w-7 bg-zinc-900"></i>
-        Cadastro de nova UC {{t.length}}
+        Cadastro de nova UC
        
     </h1>
     <div class="flex space-x-4">
@@ -48,7 +48,10 @@
                             <input 
                                     [formControlName]="item.entity"
                                     [id]="item.entity"
-                                    [type]="item.type === 'password' ? passwordInputType : item.type" />
+                                    [type]="item.type === 'password' ? passwordInputType : item.type" 
+                                    (input)="handleMask($event, item.entity)"
+    
+                                />
                         }       
                     </app-text-field>
                 </div>

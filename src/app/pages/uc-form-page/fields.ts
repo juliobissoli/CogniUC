@@ -35,20 +35,20 @@ export const ucFormFields = [
         label: 'UF'
     },
     {
-        type: 'number',
+        type: 'text',
         options: undefined,
         line: 1,
         required: true,
         entity: 'numInstallation',
-        label: 'numero unidade/Instalação'
+        label: 'N. unidade/Instalação'
     },
     {
-        type: 'number',
+        type: 'text',
         options: undefined,
         line: 1,
         required: true,
         entity: 'numClient',
-        label: 'numero cliente'
+        label: 'N. cliente'
     },
     {
         type: 'text',
