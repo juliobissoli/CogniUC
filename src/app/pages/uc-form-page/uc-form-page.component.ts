@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import {
   FormGroup,
   FormControl,
@@ -21,17 +21,29 @@ import { filterDigits, maskCnpj, maskCpf } from '../../utils/formatter';
 })
 export class UcFormPageComponent {
 
-  t: Uc[] = [];
+  ucId: string | undefined = undefined;
 
   isLoading: boolean = false
-  constructor(private ucService: DefaultService) {
-    console.log(this.ucService.listItems)
-    this.ucService.listUcs.subscribe(
-      res => {
-        this.t = res
+  constructor(
+    private ucService: DefaultService,
+    private route: ActivatedRoute,
+    private router: Router,
+
+  ) {
+
+    this.route.params.subscribe(
+      params => {
+        console.log(params)
+
+        if (params && params['id']) {
+          this.ucId = params['id']
+          this.handleGetUc(params['id'])
+        }
       }
     )
   }
+
+
 
   profileForm = new FormGroup({
     dateInit: new FormControl('', [Validators.required]),
@@ -51,6 +63,38 @@ export class UcFormPageComponent {
     password: new FormControl('', [Validators.required, Validators.minLength(6)])
   })
 
+  async handleGetUc(id: string) {
+    const uc = await this.ucService.show(id)
+
+    if (uc) {
+      const strEntities: Array<string> = [
+        // 'dateInit',
+        // 'isRural',
+        'concessionaire',
+        'uf',
+        'numInstallation',
+        'numClient',
+        'company',
+        'unitDescription',
+        'type',
+        'modality',
+        'orgType',
+        'licenseType',
+        'personCode',
+        'email',
+        'password']
+
+        strEntities.forEach((entity: string) => {
+
+          this.profileForm.get(entity)?.setValue((uc as any)[entity].toString());
+        });
+      this.profileForm.get('isRural')?.setValue(uc.isRural ? 'Sim' : 'Não');
+      this.profileForm.get('dateInit')?.setValue(new Date(uc.dateInit).toISOString().slice(0, 10));
+
+    }
+  }
+
+
 
   lines = [0, 1, 2, 3, 4]
 
@@ -59,15 +103,16 @@ export class UcFormPageComponent {
     const data: Uc = sanitizeUc(this.profileForm.value)
 
     this.isLoading = true
-    this.ucService.add(data).then(
-      res => {
+
+
+    this.ucService.save(data, this.ucId).then(
+      () => {
         this.profileForm.reset();
         this.isLoading = false
+        this.router.navigate(['/uc'])
       },
       () => { this.isLoading = false },
     )
-
-
   }
 
 
@@ -87,7 +132,7 @@ export class UcFormPageComponent {
 
 
   handleMask(event: any, entity: string) {
-    if(entity === 'numInstallation' || entity === 'numClient') {
+    if (entity === 'numInstallation' || entity === 'numClient') {
       const digits = filterDigits(20, event.target.value)
       event.target.value = digits
     }

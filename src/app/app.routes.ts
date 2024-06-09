@@ -5,6 +5,7 @@ import { UcFormPageComponent } from './pages/uc-form-page/uc-form-page.component
 export const routes: Routes = [
     { path: 'uc', component: UcManagerPageComponent },
     { path: 'uc/form', component: UcFormPageComponent },
+    { path: 'uc/form/:id', component: UcFormPageComponent },
     { path: 'cicle', component: UcManagerPageComponent },
     { path: 'script', component: UcManagerPageComponent },
     { path: 'balance', component: UcManagerPageComponent },

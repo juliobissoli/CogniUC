@@ -22,7 +22,7 @@ export const sanitizeUc = (data: any) => {
     const newData: Uc = {
         id: data?.id ?? new Date().getTime().toString(),
         dateInit: new Date(data?.dateInit ?? ''),
-        active: !!!data.active,
+        active: data?.active || true,
         concessionaire: data?.concessionaire ??  '',
         uf: data?.uf ?? '',
         numInstallation: parseInt(data?.numInstallation ?? '0'),

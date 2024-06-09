@@ -1,5 +1,5 @@
 <app-card title="Lista de UCs cadastradas">
-    <div class="h-[42vh]">
+    <div class="min-h-[42vh]">
         @if(ucList.length > 0) {
         <div class="w-full mt-4 p-4 overflow-x-auto ">
                 <div class="inline-flex lg:flex border-b">
@@ -11,7 +11,7 @@
                     <div class="w-[150px] lg:w-1/5 text-center font-semibold mb-2">Ações</div>
                 </div>
             <div class=" space-y-4 w-full">
-                @for(item of ucList; track item.id) {
+                @for(item of ucList; let idx = $index; track idx) {
                     <div class=" inline-flex lg:flex">
                         <div class=" w-[150px] lg:w-1/5 mt-4 text-center truncate">{{item.numInstallation}}</div>
                         <div class=" w-[150px] lg:w-1/5 mt-4 text-center truncate">{{item.numClient}}</div>
@@ -24,9 +24,9 @@
                          </div>
                         <div class="w-[150px] lg:w-1/5 mt-4 flex justify-center gap-2"> 
                                  
-                                <button alt="exclui UC"><i class="icon icon-edit h-4 w-4 bg-zinc-500"></i></button>
-                                <button alt="exclui UC"><i class="icon icon-settings-outline h-4 w-4 bg-blue-500"></i></button>
-                                <button alt="exclui UC"><i class="icon icon-trash h-4 w-4 bg-red-500"></i></button>
+                                <button (click)="actionsClick.emit({action: 'edit', uc: item})"><i class="icon icon-edit h-4 w-4 bg-zinc-500"></i></button>
+                                <button (click)="actionsClick.emit({action: 'edit', uc: item})"><i class="icon icon-settings-outline h-4 w-4 bg-blue-500"></i></button>
+                                <button (click)="actionsClick.emit({action: 'delete', uc: item})"><i class="icon icon-trash h-4 w-4 bg-red-500"></i></button>
                             
                         </div>
                     </div>

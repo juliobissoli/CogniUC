@@ -111,3 +111,9 @@
     mask-repeat: no-repeat;
     mask-size: 100%; 
 }
+
+.icon-x {
+    mask: url(./svg/x.svg);
+    mask-repeat: no-repeat;
+    mask-size: 100%; 
+}

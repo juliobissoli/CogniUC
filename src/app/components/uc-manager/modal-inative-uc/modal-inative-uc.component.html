@@ -1,0 +1,23 @@
+<app-modal headerTitle="Inativar UC" (closeModal)="close.emit()">
+    <p>
+        Voce tem certesa que deseja inativar essa US?
+    </p>
+    <p>
+        Se sim escreva <strong>INATIVAR</strong> no compo a baixo e click em salvar
+    </p>
+
+    <div class="mt-8">
+        <app-text-field label="Escreva o texto de validação:">
+            <input type="text" [(ngModel)]="token" />
+        </app-text-field>
+    </div>
+
+    <footer class="flex justify-between mt-4">
+
+        <button class="btn-danger" (click)="close.emit()">Cancelar</button>
+        <button 
+        [disabled]="token !== 'INATIVAR'"
+        class="btn-primary" (click)="onSave()">Salvar</button>
+    </footer>
+
+</app-modal>

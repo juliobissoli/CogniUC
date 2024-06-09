@@ -1,16 +1,16 @@
-<header class="flex justify-between ">
+<header class="flex flex-col lg:flex-row lg:justify-between ">
     <h1 class="text-xl font-semibold flex items-center gap-2 m-0">
         <i class="icon icon-add-home h-7 w-7 bg-zinc-900"></i>
         Cadastro de nova UC
        
     </h1>
-    <div class="flex space-x-4">
+    <div class="flex space-x-4 items-center">
 
         <a routerLink="/uc" class="btn-danger">
             Cancelar
         </a>
         @if(isLoading) {
-            <div class="h-8 w-8 border-4 rounded-full animate-spin border-l-0 "></div>
+            <div class="h-6 w-6 border-4 rounded-full animate-spin border-l-transparent "></div>
         }
         @else {   
             <button

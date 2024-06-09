@@ -7,7 +7,7 @@
                 <div class="flex justify-center items-center gap-4 flex-col w-full">
                     @if(item.allValues) {
                     <div class="flex justify-around w-full gap-2">
-                        @for(entity of item.allValues; track entity.label) {
+                        @for(entity of item.allValues; let idx = $index; track idx) {
                         <div class="text-center">
                             <span class="text-xs">
                                 {{entity.label}}
