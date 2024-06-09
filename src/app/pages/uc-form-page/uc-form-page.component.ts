@@ -11,6 +11,7 @@ import { ucFormFields } from './fields';
 import { DefaultService } from '../../services/default.service';
 import { Uc, sanitizeUc } from '../../interfaces/uc';
 import { filterDigits, maskCnpj, maskCpf } from '../../utils/formatter';
+import { ToastService } from '../../services/toast/toast.service';
 
 @Component({
   selector: 'app-uc-form-page',
@@ -26,6 +27,7 @@ export class UcFormPageComponent {
   isLoading: boolean = false
   constructor(
     private ucService: DefaultService,
+    private toast: ToastService,
     private route: ActivatedRoute,
     private router: Router,
 
@@ -110,6 +112,7 @@ export class UcFormPageComponent {
         this.profileForm.reset();
         this.isLoading = false
         this.router.navigate(['/uc'])
+        this.toast.show('Uc salvo com sucesso')
       },
       () => { this.isLoading = false },
     )
@@ -125,9 +128,6 @@ export class UcFormPageComponent {
   toggleVisibilityPass() {
     this.passwordInputType = this.passwordInputType === 'password' ? 'text' : 'password'
     this.iconsPassword = this.passwordInputType === 'password' ? 'icon-visibility-off' : 'icon-visibility'
-
-
-    // console.log('bateu aqui')
   }
 
 

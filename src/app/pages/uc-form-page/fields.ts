@@ -88,7 +88,7 @@ export const ucFormFields = [
         line: 2,
         required: true,
         entity: 'isRural',
-        label: 'É cliente rural'
+        label: 'É cliente rural?'
     },
     {
         type: 'text',

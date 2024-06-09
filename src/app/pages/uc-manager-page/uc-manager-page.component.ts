@@ -6,7 +6,6 @@ import { DefaultService } from '../../services/default.service';
 import { Uc } from '../../interfaces/uc';
 import { FileHelp } from '../../utils/fileHellper';
 import { fakerUcs } from '../../data/uc.faker';
-import { ModalComponent } from '../../components/common/modal/modal.component';
 import { ModalImportUcComponent } from '../../components/uc-manager/modal-import-uc/modal-import-uc.component';
 import { ModalInativeUcComponent } from '../../components/uc-manager/modal-inative-uc/modal-inative-uc.component';
 
@@ -38,10 +37,6 @@ export class UcManagerPageComponent{
       } 
       
     );
-  }
-
-  teste() {
-    console.log('Close')
   }
 
   ngOnInit() {

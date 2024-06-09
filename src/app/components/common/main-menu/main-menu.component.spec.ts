@@ -1,6 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
 
 import { MainMenuComponent } from './main-menu.component';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+
+
+const fakeActivatedRoute = {
+  snapshot: { data: {  } }
+} as ActivatedRoute;
+
+
 
 describe('MainMenuComponent', () => {
   let component: MainMenuComponent;
@@ -8,7 +17,10 @@ describe('MainMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MainMenuComponent]
+      
+      imports: [MainMenuComponent, RouterTestingModule],
+      providers: [{ provide: ActivatedRoute, useValue: fakeActivatedRoute }],
+
     })
     .compileComponents();
     
@@ -18,6 +30,12 @@ describe('MainMenuComponent', () => {
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+
+  it('should test onInit function', () => {
+    component.ngOnInit();
     expect(component).toBeTruthy();
   });
 });

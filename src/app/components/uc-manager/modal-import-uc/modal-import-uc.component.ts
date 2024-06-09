@@ -4,6 +4,7 @@ import { FileHelp } from '../../../utils/fileHellper';
 import { Uc, sanitizeUc } from '../../../interfaces/uc';
 import { ucFormFields } from '../../../pages/uc-form-page/fields';
 import { DefaultService } from '../../../services/default.service';
+import { ToastService } from '../../../services/toast/toast.service';
 
 @Component({
   selector: 'app-modal-import-uc',
@@ -15,7 +16,8 @@ import { DefaultService } from '../../../services/default.service';
 export class ModalImportUcComponent {
 
   constructor(
-    private defaultService: DefaultService
+    private defaultService: DefaultService,
+    private toast: ToastService
   ) {}
 
   @Output() close = new EventEmitter();
@@ -38,7 +40,6 @@ export class ModalImportUcComponent {
       this.file = file
       this.fileHelper.decodeCsv2JSON(file).then(
         res => {
-          console.log(res)
           this.ucList = res.map((el: any) => sanitizeUc(el))
         }
       )
@@ -52,6 +53,7 @@ export class ModalImportUcComponent {
 
   onSave() {
     this.defaultService.createMany(this.ucList)
+    this.toast.show('UCs importadas com sucesso')
     this.close.emit()
   }
 }

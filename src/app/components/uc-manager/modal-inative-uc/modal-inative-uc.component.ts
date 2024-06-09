@@ -4,6 +4,7 @@ import { TextFieldComponent } from '../../common/text-field/text-field.component
 import { Uc } from '../../../interfaces/uc';
 import { FormsModule } from '@angular/forms';
 import { DefaultService } from '../../../services/default.service';
+import { ToastService } from '../../../services/toast/toast.service';
 
 @Component({
   selector: 'app-modal-inative-uc',
@@ -15,7 +16,8 @@ import { DefaultService } from '../../../services/default.service';
 export class ModalInativeUcComponent {
 
   constructor(
-    private ucService: DefaultService
+    private ucService: DefaultService,
+    private toast: ToastService
   ) {}
 
   @Input() uc?: Uc;
@@ -28,6 +30,7 @@ export class ModalInativeUcComponent {
     console.log(this.uc)
     if(this.uc) {
       this.ucService.delete(this.uc.id)
+      this.toast.show('Operação realizada com sucesso')
       this.close.emit()
     }
   }

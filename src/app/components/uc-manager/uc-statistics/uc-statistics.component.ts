@@ -103,7 +103,7 @@ export class UcStatisticsComponent {
 
 
       this.statisticsData.type.allValues = [
-        { label: 'Comsumidor', value: this.totalConsumer },
+        { label: 'Consumidor', value: this.totalConsumer },
         { label: 'Gerador', value: this.totalUcs - this.totalConsumer },
       ]
 
@@ -115,9 +115,9 @@ export class UcStatisticsComponent {
 
       this.statisticsData.balance.allValues = [
         { label: 'Com endereço', value: this.withAddress },
-        { label: 'Com endereço', value: this.totalUcs - this.withAddress },
+        { label: 'Sem endereço', value: this.totalUcs - this.withAddress },
         { label: 'Com CPF/CNPJ', value: this.withPersonIn },
-        { label: 'SEM CPF/CNPJ', value: this.totalUcs - this.withPersonIn },
+        { label: 'Sem CPF/CNPJ', value: this.totalUcs - this.withPersonIn },
       ]
 
 
