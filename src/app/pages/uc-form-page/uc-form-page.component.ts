@@ -35,8 +35,6 @@ export class UcFormPageComponent {
 
     this.route.params.subscribe(
       params => {
-        console.log(params)
-
         if (params && params['id']) {
           this.ucId = params['id']
           this.handleGetUc(params['id'])
