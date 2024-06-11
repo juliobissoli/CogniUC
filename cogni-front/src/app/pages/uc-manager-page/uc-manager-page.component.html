@@ -1,0 +1,36 @@
+<div>
+    @if(modalImportIsVisible) {
+        <app-modal-import-uc  (close)="modalImportIsVisible = !modalImportIsVisible" (onSuccess)="handleGetUcs()" />
+    }
+
+    @if(ucToInative) {
+        <app-modal-inative-uc [uc]="ucToInative" (close)="ucToInative = undefined" (onSuccess)="handleGetUcs()" />
+    }
+    <header class="flex items-end flex-col">
+        <div class="flex space-x-4">
+            <a routerLink="/uc/form" class="btn-primary">
+                <i class="icon icon-add-home w-5 h-5 bg-white"></i>
+                Cadastro manual
+            </a>
+            <button 
+            (click)="modalImportIsVisible = !modalImportIsVisible"
+            class="btn-primary">
+                <i class="icon icon-upload-file w-5 h-5 bg-white"></i>
+                Importar planilha
+            </button>
+        </div>
+        <button (click)="downloadFileExample()" class="text-[--bg-btn-primary] flex gap-2 items-center mt-2 text-xs ">
+            <i class="icon icon-download w-5 h-5  bg-[--bg-btn-primary]"></i>
+            Download modelo de planilha
+        </button>
+    </header>
+
+    <section class="mt-4 space-x-4">
+        <app-uc-statistics [ucList]="list" />
+        <app-uc-list 
+            [ucList]="list" 
+            (actionsClick)="handleAction($event)"
+            (downloadExample)="downloadFileExample()"
+        />
+    </section>
+</div>

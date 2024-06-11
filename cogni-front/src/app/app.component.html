@@ -1,0 +1,16 @@
+<main class="flex flex-col lg:flex-row">
+  <aside class="w-full lg:w-[var(--main-menu-width)] h-[50px] lg:h-svh sticky top-0 ">
+    <app-main-menu />
+  </aside>
+  <aside class="w-pag w-full lg:w-[var(content-width)] ">
+    <div class="z-20 lg:top-0 lg:sticky">
+      <app-main-header />
+    </div>
+      <section class="p-4 lg:p-8">
+        <router-outlet />
+    </section>
+  </aside>
+
+  <!-- toast -->
+  <app-toast />
+</main>
