@@ -1,4 +1,4 @@
-<h1 align="center"> Energy Manager</h1>
+<h1 align="center"> Cogni UC</h1>
 
 [comment]: <juliobissoli> (Adicione o seu usuário e o nome do repositório)
 
@@ -26,7 +26,8 @@ Para o desenvolvimento deste projeto foi necessária a utilização de várias t
 - Tailwind CSS
 - Angular (v18)
 - TypeScript
-> Obss.: gostaria de usar a gerencia de estados com o NgRx mas ainda não esta comativel com o angular 18
+- Karma
+> Obs.: gostaria de usar a gerencia de estados com o NgRx mas ainda não esta comativel com o Angular 18
 
 
 ### API
